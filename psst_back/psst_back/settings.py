@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'accounts',
     'psc',
 ]
 
@@ -82,6 +83,10 @@ WSGI_APPLICATION = 'psst_back.wsgi.application'
 DATABASES = {
     'default': env.db(),
 }
+
+# Custom User Model
+
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Password validation
