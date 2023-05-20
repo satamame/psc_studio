@@ -7,6 +7,8 @@ class PlayScript(models.Model):
 
 
 class Character(models.Model):
+    script = models.ForeignKey(
+        PlayScript, on_delete=models.CASCADE, default=None)
     sortkey = models.IntegerField(default=0)
     name = models.CharField(max_length=50, default='名称未設定')
     desc = models.CharField(max_length=200, default='')
@@ -14,6 +16,8 @@ class Character(models.Model):
 
 
 class Scene(models.Model):
+    script = models.ForeignKey(
+        PlayScript, on_delete=models.CASCADE, default=None)
     sortkey = models.IntegerField(default=0)
     headline = models.CharField(max_length=50, default='名称未設定')
     chars = models.ManyToManyField(Character)
