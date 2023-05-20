@@ -1,0 +1,59 @@
+```
+> pip install django-rest-framework django-environ langchain openai
+```
+
+```
+> django-admin startproject psst_back .
+> django-admin startapp psc
+```
+
+settings.py 更新
+
+```python
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+....
+
+environ.Env.read_env(BASE_DIR.joinpath('.env'))
+
+....
+
+SECRET_KEY = env('SECRET_KEY')
+
+DEBUG = env('DEBUG')
+
+ALLOWED_HOSTS = ['*']
+
+....
+
+INSTALLED_APPS = [
+    ... ,
+    'rest_framework',  # 追加
+    'psc',             # 追加
+]
+
+....
+
+DATABASES = {
+    'default': env.db(),
+}
+
+....
+
+LANGUAGE_CODE = 'ja'
+
+TIME_ZONE = 'Asia/Tokyo'
+
+....
+
+OPENAI_SECRET_KEY = env('OPENAI_SECRET_KEY')  # 追加
+```
+
+psc/models.py 更新  
+psc/admin.py 更新
+
