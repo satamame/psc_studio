@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
+
 from accounts.views import UserViewSet
+from psc.views import PlayScriptViewSet, CharacterViewSet, SceneViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register('users', UserViewSet)
+router.register('scripts', PlayScriptViewSet)
+router.register('chars', CharacterViewSet)
+router.register('scenes', SceneViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
