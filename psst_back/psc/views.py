@@ -13,7 +13,7 @@ class PlayScriptViewSet(viewsets.ModelViewSet):
     """
     queryset = PlayScript.objects.all().order_by('title')
     serializer_class = PlayScriptSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
 
 class CharacterViewSet(viewsets.ModelViewSet):
