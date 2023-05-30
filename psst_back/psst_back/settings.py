@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'accounts',
     'psc',
 ]
 
@@ -82,6 +83,10 @@ WSGI_APPLICATION = 'psst_back.wsgi.application'
 DATABASES = {
     'default': env.db(),
 }
+
+# Custom User Model
+
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Password validation
@@ -129,3 +134,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # External API credentials
 
 OPENAI_SECRET_KEY = env('OPENAI_SECRET_KEY')
+
+
+# DRF
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+}
