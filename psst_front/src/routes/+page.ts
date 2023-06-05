@@ -4,8 +4,7 @@ import type { PageLoad } from './$types';
 export const ssr = false; // ブラウザのみで実行
 
 export const load = (async ({ params }) => {
-	console.log(params);
-	const res = await fetch(`${PUBLIC_API_ROOT}scripts/${params.slug}/`);
+	const res = await fetch(`${PUBLIC_API_ROOT}scripts/`);
 	const data = await res.json();
 	console.log(data);
 	return data;
